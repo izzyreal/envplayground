@@ -86,7 +86,7 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
             if (playable_length - indexWithinPlayableLength) < 8:
                 envelopeAmplitude -= 0.125
             else:
-                envelopeAmplitude += - ((1.3 - relative_remainder) * 0.0000125)
+                envelopeAmplitude += - (((1.15 - (relative_remainder * 0.6)) ** 5) * 0.00003)
 
 attack_value = 100
 plot_count = 7
