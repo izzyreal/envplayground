@@ -86,7 +86,7 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
             if (playable_length - indexWithinPlayableLength) < 8:
                 envelopeAmplitude -= 0.125
             else:
-                envelopeAmplitude += - (((1.1 - (relative_remainder * 0.65)) ** 7) * 0.00003) - 0.000003
+                envelopeAmplitude += - (((1.1 - (relative_remainder * 0.65)) ** 9) * 0.00003) - 0.000007
 
 attack_value = 100
 plot_count = 7
@@ -123,12 +123,17 @@ for decay_value in range(0, 100, 10):
     axs[plot_counter].plot(x,y)
     axs[plot_counter].xaxis.set_major_locator(loc)
     axs[plot_counter].set_ylim([0, 1.1])
+    axs[plot_counter]
+
     plot_counter += 1
     if plot_counter >= plot_count:
         break
 
 plt.xlabel('Frame')
 plt.ylabel('Amplitude')
+
+mng = plt.get_current_fig_manager()
+mng.resize(1400, 1500)
 
 plt.show()
 
