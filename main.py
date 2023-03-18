@@ -94,8 +94,8 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
 
 attack_value = 100
 decay_value  = 100
-tweak_attack_value = False
-tweak_decay_value = True
+tweak_attack_value = True
+tweak_decay_value = False
 plot_count = 7
 fig, axs = plt.subplots(plot_count)
 
@@ -149,6 +149,3 @@ mng = plt.get_current_fig_manager()
 mng.resize(1400, 1500)
 
 plt.show()
-
-decay_map = {0: 1062, 1: 1378, 2: 77, 3: 193, 4: 308, 5: 499, 6: 691, 7: 964, 8: 1234, 9: 1571, 10: 1912, 11: 2341, 12: 2798, 13: 3277, 14: 3823, 15: 4412, 16: 4988, 17: 5462, 18: 6371, 19: 7168, 20: 7646, 21: 8193, 22: 9558, 23: 10425, 24: 11469, 25: 11469, 26: 12742 }
-decay_buckets = {(27, 28): 14334 }
