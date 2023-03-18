@@ -61,8 +61,10 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
         else:
             return decayIncrement
 
-    if playable_length >= (attackTime + decayTime) * 1.005:
+    if playable_length >= (attackTime + decayTime) * 1.0205:
+
         envelopeAmplitude += get_increment(attackTime, decayTime)
+
         if attack_value == 0 and envelopeAmplitude > 0.83:
             envelopeAmplitude = 0.83
     else:
