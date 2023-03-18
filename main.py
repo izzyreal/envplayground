@@ -61,7 +61,7 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
         else:
             return decayIncrement
 
-    if playable_length >= (attackTime + decayTime) * 1.02:
+    if playable_length >= (attackTime + decayTime) * 1.005:
         envelopeAmplitude += get_increment(attackTime, decayTime)
         if attack_value == 0 and envelopeAmplitude > 0.83:
             envelopeAmplitude = 0.83
@@ -88,13 +88,13 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
             if (playable_length - indexWithinPlayableLength) < 8:
                 envelopeAmplitude -= 0.125
             else:
-                envelopeAmplitude += - (((1.1 - (relative_remainder * 0.65)) ** 9) * 0.00003) - 0.000007
+                envelopeAmplitude += - (((1.1 - (relative_remainder * 0.65)) ** 14) * 0.00003) - 0.000007
 
 attack_value = 100
 decay_value  = 100
-tweak_attack_value = True
-tweak_decay_value = False
-plot_count = 10
+tweak_attack_value = False
+tweak_decay_value = True
+plot_count = 7
 fig, axs = plt.subplots(plot_count)
 
 plot_counter = 0
@@ -105,8 +105,8 @@ for value in range(0, 100, 10):
         plot_offset -= 1
         continue
 
-    # if decay_value == 60:
-    #     continue
+    if value == 60:
+        continue
 
     if tweak_attack_value:
         attack_value = value
