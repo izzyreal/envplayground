@@ -68,7 +68,7 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
         if attack_value == 0 and envelopeAmplitude > 0.83:
             envelopeAmplitude = 0.83
     else:
-        hold_length = playable_length - (attackTime + decayTime)
+        hold_length = playable_length - ((attackTime + decayTime) * 1.02)
 
         if hold_length < 0:
             hold_length = 0;
@@ -81,6 +81,8 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
         relative_remainder = remainder / decayTime
 
         decayLeftShift = (1.0 - relative_remainder) * decayTime * 1.1
+        extra = ((decay_value / 100) * decayTime * ((0.17 - relative_remainder) ** 20))
+        decayLeftShift += extra
 
         attackTime -= decayLeftShift
 
@@ -90,7 +92,10 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
             if (playable_length - indexWithinPlayableLength) < 8:
                 envelopeAmplitude -= 0.125
             else:
-                envelopeAmplitude += - (((1.1 - (relative_remainder * 0.65)) ** 14) * 0.00003) - 0.000007
+                attack100Magic = ((1.1 - (relative_remainder * 0.65)) ** 14) * -0.00003
+                decay100Magic = 0.00008 * (1 - (attack_value / 100.0))
+                envelopeAmplitude += (attack100Magic * (attack_value / 100.0)) - 0.000007
+                envelopeAmplitude -= (decay100Magic * (decay_value / 100.0))
 
 attack_value = 100
 decay_value  = 100
