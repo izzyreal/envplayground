@@ -10,13 +10,13 @@ playable_length = 150000
 
 attack_map = {0: 8, 1: 44, 2: 88, 3: 220, 4: 352, 5: 570, 6: 790, 7: 1102, 8: 1410, 9: 1796, 10: 2185, 11: 2676, 12: 3197, 13: 3745, 14: 4369, 15: 5043, 16: 5700, 17: 6240, 18: 7280, 19: 8190, 20: 8740, 21: 9360, 22: 10930, 23: 11920, 24: 13100, 25: 13100, 26: 14560 }
 attack_buckets = {(27, 28): 16380, (29, 30): 18730, (31, 32): 21840, (33, 36): 26210, (37, 42): 32770, (43, 48): 43670, (49, 63): 65530, (64, 100): 131050 }
-decay_map = {0: 1062, 1: 1378, 2: 77, 3: 193, 4: 308, 5: 499, 6: 691, 7: 964, 8: 1234, 9: 1571, 10: 1912, 11: 2341, 12: 2798, 13: 3277, 14: 3823, 15: 4412, 16: 4988, 17: 5462, 18: 6371, 19: 7168, 20: 7646, 21: 8193, 22: 9558, 23: 10425, 24: 11469, 25: 11469, 26: 12742 }
-decay_buckets = {(27, 28): 14334, (29, 30): 16388, (31, 32): 19114, (33, 36): 22937, (37, 42): 28668, (43, 48): 38222, (49, 63): 57337, (64, 100): 114673 }
+decay_map = {0: 1168, 1: 1378, 2: 86, 3: 216, 4: 345, 5: 558, 6: 773, 7: 1088, 8: 1380, 9: 1758, 10: 2140, 11: 2620, 12: 3131, 13: 3666, 14: 4277, 15: 4937, 16: 5581, 17: 6111, 18: 7129, 19: 8020, 20: 8555, 21: 9167, 22: 10695, 23: 11665, 24: 12833, 25: 12833, 26: 131048 }
+decay_buckets = {(27, 28): 16039, (29, 30): 18282, (31, 32): 21388, (33, 36): 25666, (37, 42): 32079, (43, 48): 42770, (49, 63): 64160, (64, 100): 128315 }
 
 attack_map2 = {0: 1/8, 1: 1/44, 2: 1/88, 3: 1/220, 4: 1/352, 5: 1/570, 6: 1/790, 7: 1/1102, 8: 1/1410, 9: 1/1796, 10: 1/2185, 11: 1/2676, 12: 1/3197, 13: 1/3745, 14: 1/4369, 15: 1/5043, 16: 1/5700, 17: 1/6240, 18: 1/7280, 19: 1/8190, 20: 1/8740, 21: 1/9360, 22: 1/10930, 23: 1/11920, 24: 1/13100, 25: 1/13100, 26: 1/14560 }
 attack_buckets2 = {(27, 28): 1/16380, (29, 30): 1/18730, (31, 32): 1/21840, (33, 36): 1/26210, (37, 42): 1/32770, (43, 48): 1/43670, (49, 63): 1/65530, (64, 100): 1/131050 }
-decay_map2 = {0: 1/1062, 1: 1/1378, 2: 1/77, 3: 1/193, 4: 1/308, 5: 1/499, 6: 1/691, 7: 1/964, 8: 1/1234, 9: 1/1571, 10: 1/1912, 11: 1/2341, 12: 1/2798, 13: 1/3277, 14: 1/3823, 15: 1/4412, 16: 1/4988, 17: 1/5462, 18: 1/6371, 19: 1/7168, 20: 1/7646, 21: 1/8193, 22: 1/9558, 23: 1/10425, 24: 1/11469, 25: 1/11469, 26: 1/12742 }
-decay_buckets2 = {(27, 28): 1/14334, (29, 30): 1/16388, (31, 32): 1/19114, (33, 36): 1/22937, (37, 42): 1/28668, (43, 48): 1/38222, (49, 63): 1/57337, (64, 100): 1/114673 }
+decay_map2 = {0: 1/1168, 1: 1/1378, 2: 1/86, 3: 1/216, 4: 1/345, 5: 1/558, 6: 1/773, 7: 1/1088, 8: 1/1380, 9: 1/1758, 10: 1/2140, 11: 1/2620, 12: 1/3131, 13: 1/3666, 14: 1/4277, 15: 1/4937, 16: 1/5581, 17: 1/6111, 18: 1/7129, 19: 1/8020, 20: 1/8555, 21: 1/9167, 22: 1/10695, 23: 1/11665, 24: 1/12833, 25: 1/12833, 26: 131048 }
+decay_buckets2 = {(27, 28): 1/16039, (29, 30): 1/18282, (31, 32): 1/21388, (33, 36): 1/25666, (37, 42): 1/32079, (43, 48): 1/42770, (49, 63): 1/64160, (64, 100): 1/128315 }
 
 def get_attack_or_decay_length(value, is_attack):
     if is_attack:
@@ -53,7 +53,7 @@ def get_attack_or_decay_increment(value, is_attack):
 def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement):
     global envelopeAmplitude
 
-    def get_increment(myAttackTime, myDecayTime, decayRemainder = 0):
+    def get_increment(myAttackTime, myDecayTime):
         if indexWithinPlayableLength < myAttackTime:
             return attackIncrement
         elif indexWithinPlayableLength < (playable_length - myDecayTime):
@@ -63,6 +63,8 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
 
     if playable_length >= (attackTime + decayTime) * 1.02:
         envelopeAmplitude += get_increment(attackTime, decayTime)
+        if attack_value == 0 and envelopeAmplitude > 0.83:
+            envelopeAmplitude = 0.83
     else:
         hold_length = playable_length - (attackTime + decayTime)
 
@@ -89,19 +91,28 @@ def getEnvelopeAmplitude(attackTime, decayTime, attackIncrement, decayIncrement)
                 envelopeAmplitude += - (((1.1 - (relative_remainder * 0.65)) ** 9) * 0.00003) - 0.000007
 
 attack_value = 100
-plot_count = 7
+decay_value  = 100
+tweak_attack_value = True
+tweak_decay_value = False
+plot_count = 10
 fig, axs = plt.subplots(plot_count)
 
 plot_counter = 0
 plot_offset = 0
 
-for decay_value in range(0, 100, 10):
+for value in range(0, 100, 10):
     if plot_offset > 0:
         plot_offset -= 1
         continue
 
-    if decay_value == 60:
-        continue
+    # if decay_value == 60:
+    #     continue
+
+    if tweak_attack_value:
+        attack_value = value
+
+    if tweak_decay_value:
+        decay_value = value
 
     attack_length = get_attack_or_decay_length(attack_value, True)
     decay_length =  get_attack_or_decay_length(decay_value, False)
